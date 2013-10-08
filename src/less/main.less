@@ -1,0 +1,29 @@
+html, body {height: 100%;}
+img {max-width: 100%;height: auto;}
+.highlight(@primary, @white);
+
+body {
+  background-color: hsl(0, 0%, 95%);
+  font-family: @copy;
+  font-weight: @normal;
+  font-size: 17px;
+  line-height: 1.3em;
+  color: @mainTextColor;
+  padding-top: 60px;
+  @media(min-width: @screen-tablet) {
+  }
+}
+
+a {
+  color: @soft-blue;
+  &:hover {
+    text-decoration: none;
+    color: darken(@soft-blue, 15%);
+  }
+}
+
+// These are the rows - use section instead of row
+section {
+  .make-row();
+}
+

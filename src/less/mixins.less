@@ -1,0 +1,76 @@
+.pp-btn() {
+  .border-radius(6px);
+  border: 1px solid;
+  border-color: hsl(80, 71%, 37%);
+  display: inline-block;
+  text-align: center;
+  color: hsl(0, 0%, 100%);
+  #gradient > .vertical(hsl(77, 64%, 48%), hsl(80, 71%, 37%), 0%, 100%);
+  &:hover {
+    #gradient > .vertical(hsl(77, 64%, 38%), hsl(80, 71%, 27%), 0%, 100%);
+  }
+}
+
+.gray(@percent) {
+	color: lighten(@black, percentage(@percent / 100));
+}
+
+.bgc(@color) {
+	background-color: @color;
+}
+
+.bgi(@src, @xpos: 0, @ypos: 0, @repeat: no-repeat) {
+	background-image: url(@src);
+	background-position: @xpos @ypos;
+	background-attachment: scroll;
+	background-repeat: @repeat;
+}
+
+.background-cover(@cover: cover) {
+  -webkit-background-size: @cover;
+  -moz-background-size: @cover;
+  -o-background-size: @cover;
+  background-size: @cover;
+}
+
+// Makes a layered background. I use it for a 2x2 pixel grid on top of another image for a nice "screen" effect.
+.background-layers(@top, @bottom, @size-top:auto, @size-bottom:cover) {
+  background: url(@top), url(@bottom);
+  background-position: top center, top center;
+  background-attachment: fixed, fixed;
+  background-repeat: repeat, repeat;
+  -webkit-background-size: @size-top, @size-bottom;
+  -moz-background-size: @size-top, @size-bottom;
+  -o-background-size: @size-top, @size-bottom;
+  background-size: @size-top, @size-bottom;
+}
+
+.highlight(@backgroundColor, @textColor) {
+  ::selection, -moz::selection {
+    background: @backgroundColor;
+    color: @textColor;
+  }
+}
+
+.textShadowBlack(@shadow: 0 1px 0px rgba(0,0,0,1)) { text-shadow: @shadow; }
+.textShadowWhite(@shadow: 0 1px 0px rgba(255,255,255,1)) { text-shadow: @shadow; }
+
+// the retina mixin. Goes .atx(img/header@2x.png, 650px, 150px).
+// Put the effective size, it goes width then height
+@highdpi: ~"(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)";
+
+
+.at2x(@path, @w: auto, @h: auto, @xpos: 0, @ypos: 0, @repeat: no-repeat, @attachment: scroll) {
+  background-image: url(@path);
+  background-position: @xpos @ypos;
+  background-repeat: @repeat;
+  background-attachment: @attachment;
+  @at2x_path: ~`"@{path}".split('.').slice(0, "@{path}".split('.').length - 1).join(".") + "@2x" + "." + "@{path}".split('.')["@{path}".split('.').length - 1]`;
+  @media @highdpi {
+    background-image: url(@at2x_path);
+    background-size: @w @h;
+    background-position: @xpos @ypos;
+    background-repeat: @repeat;
+    background-attachment: @attachment;
+  }
+}

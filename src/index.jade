@@ -1,0 +1,21 @@
+!!! 5
+html(lang="en")
+  head
+    title My Site
+
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')    script(src='//code.jquery.com/jquery-latest.min.js')
+    script(src='js/jquery.min.js')
+    script(src='//use.typekit.net/xmb4mjl.js')
+    script.
+      try{Typekit.load();}catch(e){}
+    script(src='js/bootstrap.min.js')
+    // if lt IE 9
+      script(src='js/html5shiv.js')
+      script(src='js/respond.min.js')
+    link(rel='stylesheet', href='css/styles.css')
+
+  body
+    include nav
+    include header
+    include content
+    include footer
