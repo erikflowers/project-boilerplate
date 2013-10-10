@@ -1,4 +1,4 @@
-.pp-btn() {
+.my-btn() {
   .border-radius(6px);
   border: 1px solid;
   border-color: hsl(80, 71%, 37%);
@@ -73,4 +73,28 @@
     background-repeat: @repeat;
     background-attachment: @attachment;
   }
+}
+
+
+.unstyled() {
+  list-style: none;
+  margin: 0px;
+  padding:0px;
+  .clearfix;
+}
+.li-inline() {
+  li {
+    display: block;
+    float: left;
+  }
+}
+
+
+.noselect() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
