@@ -52,8 +52,12 @@
   }
 }
 
-.textShadowBlack(@shadow: 0 1px 0px rgba(0,0,0,1)) { text-shadow: @shadow; }
-.textShadowWhite(@shadow: 0 1px 0px rgba(255,255,255,1)) { text-shadow: @shadow; }
+.text-shadow-black(@shadow: 100) {
+  text-shadow: 0 1px 0px hsla(0, 0%, 0%, (@shadow * .01));
+}
+.text-shadow-white(@shadow: 0 1px 0px rgba(255,255,255,1)){
+  text-shadow: @shadow;
+}
 
 // the retina mixin. Goes .atx(img/header@2x.png, 650px, 150px).
 // Put the effective size, it goes width then height
