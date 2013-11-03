@@ -102,3 +102,23 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+
+
+/// Absolute
+
+.absolute(@top: 0, @right: 0, @bottom: 0, @right; 0;) {
+  position: absolute;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @right;
+ }
+
+
+
+.border-radius(@top-left: 5px, @top-right: 5px, @bottom-right: 5px, @bottom-left: 5px) {
+  -webkit-border-radius: @top-left @top-right @bottom-right @bottom-left;
+     -moz-border-radius: @top-left @top-right @bottom-right @bottom-left;
+          border-radius: @top-left @top-right @bottom-right @bottom-left;
+}
